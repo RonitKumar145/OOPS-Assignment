@@ -17,9 +17,9 @@ int main(){
   cout<<"enter time in years: ";
   cin>>timePeriod;
 
-  simpleInterest=(principleAMT*interestRate*timePeriod)/100;             // simple interest => (p*r*t)/100
+  simpleInterest=(principleAMT*interestRate*timePeriod) / 100;             // simple interest => (p*r*t)/100
 
-  cout<<"simple interest: "<<endl;
+  cout<<"simple interest: "<<simpleInterest<<endl;
 
   return 0;
 
