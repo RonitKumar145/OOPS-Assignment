@@ -27,7 +27,7 @@ int main(){
    cout<<"boolean value = "<<student<<endl;                           // boolean data type( true=1, false=0)
   cout<<"boolean size = "<<sizeof(bool)<<" Bytes"<<endl;
 
-  string name =" Ronit";
+  string name ="Ronit";
    cout<<"string value = "<<name<<endl;                           // string type data
   cout<<"string size = "<<sizeof(string)<<" Bytes"<<endl;
 
