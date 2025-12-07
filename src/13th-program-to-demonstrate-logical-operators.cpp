@@ -9,10 +9,10 @@ int main(){
   
   bool student, IdCard;
 
-  cout<<"are you a student: ( 1 for true and 0 for false )";
+  cout<<"are you a student: ( 1 for true and 0 for false ): ";
   cin>>student;
 
-  cout<<"do you have ID Card: ( 1 for true and 0 for false )";
+  cout<<"do you have ID Card: ( 1 for true and 0 for false ): ";
   cin>>IdCard;
 
   //logical operations                                                       logical operators
