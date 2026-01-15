@@ -1,45 +1,39 @@
 //Ronit Kumar
 //roll no -48, REG NO -10056
 //BTECH-CSE, 2ND YEAR
+#include <iostream>
+using namespace std;
 
-#include<iostream> 
+int main() {
+    // 1. Find area of Circle
+    const float PI = 3.141f;
+    float radius;
 
-using namespace std; 
-int main(){
+    cout << "Enter radius of circle: ";
+    cin >> radius;
 
-  // to find area of circle
-  const float pi=3.141;        //const keyword declarartion
-  float radius;
+    float circleArea = PI * radius * radius;
+    cout << "Area of Circle: " << circleArea << endl << endl;
 
-  cout<<"enter radius of circle: ";
-  cin>> radius;
+    // 2. Find area of Triangle
+    float base, height;
+    cout << "Enter base of triangle: ";
+    cin >> base;
+    cout << "Enter height of triangle: ";
+    cin >> height;
 
-  float CircleArea= (pi*radius*radius);             //calculation for area of circle
-  cout<<"Area of Circle: "<<CircleArea<<endl;
+    float triangleArea = (base * height) / 2;
+    cout << "Area of Triangle: " << triangleArea << endl << endl;
 
-  // to find area of triangle
-  float baseOfTriangle, heightOfTriangle;
-  cout<<"enter base of triangle: ";
-  cin>>baseOfTriangle;
+    // 3. Find area of Rectangle
+    float length, width;
+    cout << "Enter length of rectangle: ";
+    cin >> length;
+    cout << "Enter width of rectangle: ";
+    cin >> width;
 
-  cout<<"enter height of triangle: ";
-  cin>>heightOfTriangle;
+    float rectangleArea = length * width;
+    cout << "Area of Rectangle: " << rectangleArea << endl;
 
-  float TriangleArea=(baseOfTriangle*heightOfTriangle)/2;          // calculation of area of triangle
-  cout<<"Area of Triangle: "<<TriangleArea<<endl;
-
-  // to find area of rectangle
-  float lengthOfRectangle, widthOfRectangle;
-  cout<<" enter length if rectangle: ";
-  cin>>lengthOfRectangle;
-
-  cout<<"enter width of rectangle: ";
-  cin>>widthOfRectangle;
-
-  float AreaOfRectangle=(lengthOfRectangle*widthOfRectangle);         // calculation of area of rectangle
-  cout<<"Area of Rectangle: "<<AreaOfRectangle;
-
-  return 0;
-
-
+    return 0;
 }
