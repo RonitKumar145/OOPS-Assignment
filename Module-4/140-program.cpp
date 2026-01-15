@@ -5,42 +5,10 @@
 #include <fstream>
 using namespace std;
 
-struct Student {
-    int roll;
-    char name[20];
-};
-
 int main() {
-    Student s;
-    int updateRoll;
-    bool found = false;
-
-    // Use fstream for both read and write capabilities
-    fstream file("students.dat", ios::binary | ios::in | ios::out);
-
-    cout << "Enter Roll Number to update: ";
-    cin >> updateRoll;
-
-    while (file.read((char*)&s, sizeof(s))) {
-        if (s.roll == updateRoll) {
-            found = true;
-            cout << "Current Name: " << s.name << endl;
-            cout << "Enter New Name: ";
-            cin >> s.name;
-
-            // Move pointer back by one record size to overwrite
-            // seekp moves the 'put' pointer
-            int pos = -1 * static_cast<int>(sizeof(s));
-            file.seekp(pos, ios::cur);
-            
-            file.write((char*)&s, sizeof(s));
-            cout << "Record Updated." << endl;
-            break;
-        }
-    }
-    file.close();
-
-    if (!found) cout << "Record not found." << endl;
-
+    fstream f("rec.txt", ios::in | ios::out);
+    f.seekp(0);
+    f << "101 Updated";
+    cout << "Record Updated\n";
     return 0;
 }

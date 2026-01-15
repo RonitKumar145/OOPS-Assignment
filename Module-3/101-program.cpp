@@ -6,28 +6,16 @@ using namespace std;
 
 class Base {
 public:
-    virtual void display() {
-        cout << "Base Display" << endl;
-    }
+    virtual void display() { cout << "Base Display\n"; }
 };
 
 class Derived : public Base {
 public:
-    void display() {
-        cout << "Derived Display" << endl;
-    }
+    void display() { cout << "Derived Display\n"; }
 };
 
 int main() {
-    Base* ptr;
-    Derived obj;
-    ptr = &obj;
-
-    // Late binding (Run-time binding)
-    // The compiler doesn't know which function to call until runtime
-    // because display() is virtual.
-    cout << "Late Binding Call:" << endl;
-    ptr->display(); 
-
+    Base* ptr = new Derived();
+    ptr->display(); // Late Binding
     return 0;
 }

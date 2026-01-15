@@ -6,15 +6,14 @@
 using namespace std;
 
 int main() {
-    ifstream file("test_exist.txt");
+    int x = 12345;
+    ofstream out("bin.dat", ios::binary);
+    out.write((char*)&x, sizeof(x));
+    out.close();
     
-    // Good practice: Try to open the file
-    if (file.good()) {
-        cout << "File 'test_exist.txt' exists." << endl;
-    } else {
-        cout << "File 'test_exist.txt' does not exist." << endl;
-    }
-    file.close();
-
+    int y;
+    ifstream in("bin.dat", ios::binary);
+    in.read((char*)&y, sizeof(y));
+    cout << "Read: " << y << endl;
     return 0;
 }

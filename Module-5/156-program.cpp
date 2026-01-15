@@ -6,19 +6,8 @@ using namespace std;
 
 int main() {
     try {
-        cout << "Outer try block." << endl;
-        try {
-            cout << "Inner try block." << endl;
-            throw 99;
-        }
-        catch (int e) {
-            cout << "Caught in inner catch: " << e << endl;
-            // Rethrow to handle in outer block if needed, or handle completely here
-            throw; 
-        }
-    }
-    catch (int e) {
-        cout << "Caught in outer catch: " << e << endl;
-    }
+        try { throw 1; }
+        catch(int) { cout << "Inner\n"; throw; }
+    } catch(int) { cout << "Outer\n"; }
     return 0;
 }

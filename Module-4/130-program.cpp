@@ -6,16 +6,9 @@
 using namespace std;
 
 int main() {
-    // Open in append mode
-    ofstream outFile("output.txt", ios::app);
-    
-    if (outFile.is_open()) {
-        outFile << "Appended Line." << endl;
-        cout << "Data appended successfully." << endl;
-        outFile.close();
-    } else {
-        cout << "Unable to open file." << endl;
-    }
-    
+    ofstream f("data.txt", ios::app);
+    f << " Appended Text";
+    f.close();
+    cout << "Appended\n";
     return 0;
 }

@@ -6,25 +6,17 @@ using namespace std;
 
 class Base {
 public:
-    void print() {
-        cout << "Base Function" << endl;
-    }
+    void show() { cout << "Base Function\n"; }
 };
 
 class Derived : public Base {
 public:
-    // Overriding base class function
-    void print() {
-        cout << "Derived Function (Overrides Base)" << endl;
-    }
+    void show() { cout << "Derived Function\n"; }
 };
 
 int main() {
     Derived d;
-    d.print(); // Calls Derived's function
-    
-    // Accessing overridden function using scope resolution
-    d.Base::print();
-
+    d.show();      // Derived
+    d.Base::show();// Base
     return 0;
 }

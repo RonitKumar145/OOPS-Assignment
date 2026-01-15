@@ -5,13 +5,10 @@
 using namespace std;
 
 int main() {
-    char ch;
-    cout << "Enter a character: ";
-    cin.get(ch); // Reads a single character, including whitespace
-    
-    cout << "You entered: ";
-    cout.put(ch); // Outputs a single character
-    cout << endl;
-    
+    char c;
+    cout << "Enter char: ";
+    cin.get(c);
+    cout << "Char: ";
+    cout.put(c);
     return 0;
 }

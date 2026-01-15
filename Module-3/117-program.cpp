@@ -4,38 +4,17 @@
 #include <iostream>
 using namespace std;
 
-// Composition: Engine is PART OF Car. Without Car, Engine context is specific.
-// If Car is destroyed, Engine is destroyed (typically).
-
 class Engine {
-public:
-    void start() {
-        cout << "Engine Started." << endl;
-    }
-    void stop() {
-        cout << "Engine Stopped." << endl;
-    }
+public: void start() { cout << "Vroom\n"; }
 };
 
 class Car {
-private:
-    Engine engine; // Composition: Car HAS-A Engine
-
-public:
-    void startCar() {
-        engine.start();
-        cout << "Car is moving." << endl;
-    }
-    void stopCar() {
-        engine.stop();
-        cout << "Car has stopped." << endl;
-    }
+    Engine e;
+public: void move() { e.start(); cout << "Moving\n"; }
 };
 
 int main() {
-    Car myCar;
-    myCar.startCar();
-    myCar.stopCar();
-
+    Car c;
+    c.move();
     return 0;
 }

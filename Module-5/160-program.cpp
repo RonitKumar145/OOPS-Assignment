@@ -4,19 +4,12 @@
 #include <iostream>
 using namespace std;
 
-class BaseException {};
-class DerivedException : public BaseException {};
+class Parent {};
+class Child : public Parent {};
 
 int main() {
-    try {
-        throw DerivedException();
-    }
-    // Order matters: Derived catch must come before Base catch
-    catch (DerivedException d) {
-        cout << "Caught Derived Exception" << endl;
-    }
-    catch (BaseException b) {
-        cout << "Caught Base Exception" << endl;
-    }
+    try { throw Child(); }
+    catch(Child) { cout << "Caught Child\n"; }
+    catch(Parent) { cout << "Caught Parent\n"; }
     return 0;
 }

@@ -5,11 +5,9 @@
 using namespace std;
 
 int main() {
-    int num;
-    cout << "Enter an integer: ";
-    cin >> num;
-    
-    cout << "You entered: " << num << endl;
-    
+    int i;
+    cout << "Enter int: "; 
+    cin >> i;
+    cout << "Value: " << i << endl;
     return 0;
 }

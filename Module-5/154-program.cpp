@@ -5,24 +5,10 @@
 using namespace std;
 
 int main() {
-    int numerator, denominator;
-    double result;
-
-    cout << "Enter numerator: ";
-    cin >> numerator;
-    cout << "Enter denominator: ";
-    cin >> denominator;
-
+    int n=10, d=0;
     try {
-        if (denominator == 0) {
-            throw "Division by Zero Error!";
-        }
-        result = (double)numerator / denominator;
-        cout << "Result: " << result << endl;
-    }
-    catch (const char* msg) {
-        cout << "Error: " << msg << endl;
-    }
-
+        if(d==0) throw "Div by 0";
+        cout << n/d;
+    } catch(const char* m) { cout << m << endl; }
     return 0;
 }

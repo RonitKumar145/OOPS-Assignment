@@ -6,30 +6,18 @@ using namespace std;
 
 class Demo {
 public:
-    void staticBind() {
-        cout << "Static Binding: Resolved at Compile Time." << endl;
-    }
-
-    virtual void dynamicBind() {
-        cout << "Dynamic Binding: Resolved at Runtime." << endl;
-    }
+    void staticBind() { cout << "Static\n"; }
+    virtual void dynamicBind() { cout << "Dynamic\n"; }
 };
 
-class SubDemo : public Demo {
+class Sub : public Demo {
 public:
-    void dynamicBind() {
-        cout << "SubDemo Dynamic Binding." << endl;
-    }
+    void dynamicBind() { cout << "Sub Dynamic\n"; }
 };
 
 int main() {
-    Demo* ptr = new SubDemo();
-
-    // Static Binding (uses pointer type)
-    ptr->staticBind();
-
-    // Dynamic Binding (uses object type)
-    ptr->dynamicBind();
-
+    Demo* d = new Sub();
+    d->staticBind();
+    d->dynamicBind();
     return 0;
 }

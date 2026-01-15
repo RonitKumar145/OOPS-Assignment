@@ -6,15 +6,9 @@
 using namespace std;
 
 int main() {
-    int *dataPointer;
     try {
         long long size = 1000000000000;
-        dataPointer = new int[size]; // Trying to allocate too much memory
-        cout << "Allocation successful" << endl;
-        delete[] dataPointer;
-    }
-    catch (bad_alloc& ba) {
-        cout << "bad_alloc caught: " << ba.what() << endl;
-    }
+        int* p = new int[size];
+    } catch(bad_alloc&) { cout << "No Mem\n"; }
     return 0;
 }

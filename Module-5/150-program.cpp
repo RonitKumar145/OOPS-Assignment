@@ -4,12 +4,13 @@
 #include <iostream>
 using namespace std;
 
+void test() { throw 100; }
+
 int main() {
     try {
-        throw 10; // Can assume any type here
-    }
-    catch (...) {
-        cout << "Caught generic exception using '...'" << endl;
+        test();
+    } catch(int e) {
+        cout << "Exception: " << e << endl;
     }
     return 0;
 }

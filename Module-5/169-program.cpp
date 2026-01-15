@@ -4,34 +4,11 @@
 #include <iostream>
 using namespace std;
 
-class InsufficientFundsException : public exception {
-public:
-    const char* what() const throw() {
-        return "Insufficient Funds for Withdrawal!";
-    }
-};
-
-class BankAccount {
-    double balance;
-public:
-    BankAccount(double b) : balance(b) {}
-    
-    void withdraw(double amount) {
-        if (amount > balance) {
-            throw InsufficientFundsException();
-        }
-        balance -= amount;
-        cout << "Withdrawal Successful. Remaining: " << balance << endl;
-    }
-};
-
 int main() {
-    BankAccount myAcc(500.0);
+    int bal = 500, w = 1000;
     try {
-        myAcc.withdraw(1000.0);
-    }
-    catch (InsufficientFundsException& e) {
-        cout << "Transaction Failed: " << e.what() << endl;
-    }
+        if(w > bal) throw "Low Bal";
+        bal -= w;
+    } catch(const char* m) { cout << m << endl; }
     return 0;
 }

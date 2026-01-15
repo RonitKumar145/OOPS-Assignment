@@ -4,39 +4,15 @@
 #include <iostream>
 using namespace std;
 
-class LifeCycle {
+class Obj {
     int id;
-
 public:
-    // Constructor
-    LifeCycle(int i) {
-        id = i;
-        cout << "Object " << id << " Created (Constructor)" << endl;
-    }
-
-    void work() {
-        cout << "Object " << id << " is working..." << endl;
-    }
-
-    // Destructor
-    ~LifeCycle() {
-        cout << "Object " << id << " Destroyed (Destructor)" << endl;
-    }
+    Obj(int i) : id(i) { cout << "Created " << id << endl; }
+    ~Obj() { cout << "Destroyed " << id << endl; }
 };
 
 int main() {
-    cout << "Entering main..." << endl;
-
-    LifeCycle obj1(1);
-    obj1.work();
-
-    {
-        cout << "\nEntering block..." << endl;
-        LifeCycle obj2(2);
-        obj2.work();
-        cout << "Exiting block..." << endl;
-    } // obj2 destroyed here
-
-    cout << "\nExiting main..." << endl;
+    Obj o1(1);
+    { Obj o2(2); }
     return 0;
-} // obj1 destroyed here
+}

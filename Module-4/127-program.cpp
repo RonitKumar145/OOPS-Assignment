@@ -3,21 +3,12 @@
 //BTECH-CSE, 2ND YEAR
 #include <iostream>
 #include <fstream>
-#include <string>
 using namespace std;
 
 int main() {
-    ifstream inFile("output.txt"); // Assuming output.txt exists
-    string line;
-    
-    if (inFile.is_open()) {
-        while (getline(inFile, line)) {
-            cout << line << endl;
-        }
-        inFile.close();
-    } else {
-        cout << "Unable to open file. Make sure 'output.txt' exists." << endl;
-    }
-    
+    ifstream f("data.txt");
+    string s;
+    while(getline(f, s)) cout << s << endl;
+    f.close();
     return 0;
 }

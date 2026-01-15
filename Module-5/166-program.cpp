@@ -4,28 +4,11 @@
 #include <iostream>
 using namespace std;
 
-class Base {
-public:
-    // A function in base class that doesn't throw
-    virtual void show() { cout << "Base show" << endl; }
-};
-
-class Derived : public Base {
-public:
-    // It's allowed for overridden function to throw exceptions
-    // even if base one does not (unless base is noexcept)
-    void show() {
-        throw "Exception from Derived show()";
-    }
-};
+class Base { public: virtual void f() { cout<<"Base\n"; } };
+class Derived : public Base { public: void f() { throw "Err"; } };
 
 int main() {
-    Base* b = new Derived();
-    try {
-        b->show();
-    }
-    catch (const char* msg) {
-        cout << "Caught: " << msg << endl;
-    }
+    try { Derived d; d.f(); } 
+    catch(const char* m) { cout << m << endl; }
     return 0;
 }

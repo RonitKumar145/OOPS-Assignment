@@ -6,19 +6,10 @@ using namespace std;
 
 int main() {
     int age;
-    cout << "Enter your age (0-100): ";
-    
+    cin >> age;
     try {
-        if (!(cin >> age)) {
-            throw "Invalid Input! Not a number.";
-        }
-        if (age < 0 || age > 100) {
-            throw "Age out of valid range (0-100).";
-        }
-        cout << "Valid age entered: " << age << endl;
-    }
-    catch (const char* msg) {
-        cout << "Input Error: " << msg << endl;
-    }
+        if(age < 0) throw "Invalid";
+        cout << "Age: " << age;
+    } catch(const char* m) { cout << m; }
     return 0;
 }

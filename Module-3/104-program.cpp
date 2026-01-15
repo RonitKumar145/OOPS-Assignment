@@ -4,41 +4,29 @@
 #include <iostream>
 using namespace std;
 
-class Document {
+class Base {
 public:
-    virtual void print() {
-        cout << "Printing generic document" << endl;
-    }
+    virtual void print() { cout << "Base\n"; }
 };
 
-class PDF : public Document {
+class A : public Base {
 public:
-    void print() {
-        cout << "Printing PDF document" << endl;
-    }
+    void print() { cout << "Class A\n"; }
 };
 
-class Word : public Document {
+class B : public Base {
 public:
-    void print() {
-        cout << "Printing Word document" << endl;
-    }
+    void print() { cout << "Class B\n"; }
 };
 
 int main() {
-    Document* doc;
-    int choice;
-
-    cout << "1. PDF\n2. Word\nEnter choice: ";
-    cin >> choice;
-
-    if (choice == 1)
-        doc = new PDF();
-    else
-        doc = new Word();
-
-    // Dynamic Dispatch: Decision made at runtime
-    doc->print();
-
+    Base *ptr;
+    int x;
+    cout << "1 for A, 2 for B: "; cin >> x;
+    
+    if(x == 1) ptr = new A();
+    else ptr = new B();
+    
+    ptr->print();
     return 0;
 }

@@ -4,35 +4,20 @@
 #include <iostream>
 using namespace std;
 
-// Abstract Class
 class Shape {
-protected:
-    int width, height;
 public:
-    Shape(int w, int h) : width(w), height(h) {}
-    
-    // Pure virtual function
-    virtual int area() = 0;
+    virtual int area() = 0; // Pure Virtual Function
 };
 
-class Rectangle : public Shape {
+class Square : public Shape {
+    int side;
 public:
-    Rectangle(int w, int h) : Shape(w, h) {}
-    int area() { return width * height; }
-};
-
-class Triangle : public Shape {
-public:
-    Triangle(int w, int h) : Shape(w, h) {}
-    int area() { return (width * height) / 2; }
+    Square(int s) : side(s) {}
+    int area() { return side * side; }
 };
 
 int main() {
-    Rectangle rect(10, 5);
-    Triangle tri(10, 5);
-
-    cout << "Rectangle Area: " << rect.area() << endl;
-    cout << "Triangle Area: " << tri.area() << endl;
-
+    Square s(5);
+    cout << "Area: " << s.area() << endl;
     return 0;
 }

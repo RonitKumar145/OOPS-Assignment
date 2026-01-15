@@ -6,23 +6,16 @@ using namespace std;
 
 class Base {
 public:
-    Base() { cout << "Base Constructor" << endl; }
-    
-    // Virtual Destructor ensures derived destructor is called
-    virtual ~Base() { cout << "Base Destructor" << endl; }
+    virtual ~Base() { cout << "Base Destructor\n"; }
 };
 
 class Derived : public Base {
 public:
-    Derived() { cout << "Derived Constructor" << endl; }
-    ~Derived() { cout << "Derived Destructor" << endl; }
+    ~Derived() { cout << "Derived Destructor\n"; }
 };
 
 int main() {
     Base* ptr = new Derived();
-    
-    // Without virtual destructor in Base, Derived destructor would NOT be called
-    delete ptr;
-
+    delete ptr; // Calls both destructors
     return 0;
 }

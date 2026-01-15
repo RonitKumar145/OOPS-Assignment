@@ -2,18 +2,11 @@
 //roll no -48, REG NO -10056
 //BTECH-CSE, 2ND YEAR
 #include <iostream>
-#include <iomanip> // Required for setw and setprecision
+#include <iomanip>
 using namespace std;
 
 int main() {
-    double pi = 3.1415926535;
-    
-    cout << "Default: " << pi << endl;
-    
-    cout << "Set Precision (4): " << setprecision(4) << pi << endl;
-    
-    cout << "Set Width (10): " << setw(10) << 12345 << endl;
-    cout << "Set Width (10): " << setw(10) << 12 << endl;
-    
+    cout << setprecision(3) << 3.14159 << endl;
+    cout << setw(10) << "Right" << endl;
     return 0;
 }

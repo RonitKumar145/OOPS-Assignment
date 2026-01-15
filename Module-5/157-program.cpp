@@ -4,26 +4,12 @@
 #include <iostream>
 using namespace std;
 
-class Test {
-public:
-    Test() {
-        cout << "Constructor called." << endl;
-        // Simulating failure condition
-        if (true) {
-            throw "Constructor Failed Initialization!";
-        }
-    }
-    ~Test() {
-        cout << "Destructor called." << endl;
-    }
+class A {
+public: A() { throw "Ctor Error"; }
 };
 
 int main() {
-    try {
-        Test t; // Constructor throws
-    }
-    catch (const char* msg) {
-        cout << "Caught exception: " << msg << endl;
-    }
+    try { A a; }
+    catch(const char* m) { cout << m << endl; }
     return 0;
 }

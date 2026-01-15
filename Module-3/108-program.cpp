@@ -4,39 +4,24 @@
 #include <iostream>
 using namespace std;
 
-class Person {
+class Base {
 public:
-    virtual void introduce() {
-        cout << "I am a Person." << endl;
-    }
+    virtual void show() { cout << "Base\n"; }
 };
-
-class Student : public Person {
+class A : public Base {
 public:
-    void introduce() {
-        cout << "I am a Student." << endl;
-    }
+    void show() { cout << "A\n"; }
 };
-
-class Teacher : public Person {
+class B : public Base {
 public:
-    void introduce() {
-        cout << "I am a Teacher." << endl;
-    }
+    void show() { cout << "B\n"; }
 };
 
 int main() {
-    // Array of pointers to base class
-    Person* people[3];
-
-    people[0] = new Person();
-    people[1] = new Student();
-    people[2] = new Teacher();
-
-    cout << "Polymorphic Array iteration:" << endl;
-    for (int i = 0; i < 3; i++) {
-        people[i]->introduce();
-    }
-
+    Base* arr[2];
+    arr[0] = new A();
+    arr[1] = new B();
+    
+    for(int i=0; i<2; i++) arr[i]->show();
     return 0;
 }

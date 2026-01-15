@@ -6,15 +6,8 @@
 using namespace std;
 
 int main() {
-    // Create an output file stream
-    ofstream outFile("example.txt");
-    
-    if (outFile.is_open()) {
-        cout << "File 'example.txt' created successfully." << endl;
-        outFile.close();
-    } else {
-        cout << "Error creating file." << endl;
-    }
-    
+    ofstream f("test.txt");
+    if(f) cout << "Created\n";
+    f.close();
     return 0;
 }

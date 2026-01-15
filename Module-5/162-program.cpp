@@ -6,20 +6,9 @@
 using namespace std;
 
 int main() {
-    string filename;
-    cout << "Enter filename to open: ";
-    cin >> filename;
-
     try {
-        ifstream file(filename.c_str());
-        // Configure ifstream to throw exceptions on failure
-        file.exceptions(ifstream::failbit | ifstream::badbit);
-        
-        cout << "File opened successfully." << endl;
-        file.close();
-    }
-    catch (ifstream::failure e) {
-        cout << "Exception opening/reading file" << endl;
-    }
+        ifstream f("none.txt");
+        if(!f) throw "File Error";
+    } catch(const char* m) { cout << m << endl; }
     return 0;
 }

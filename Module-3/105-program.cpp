@@ -6,34 +6,19 @@ using namespace std;
 
 class Base {
 public:
-    virtual void show() {
-        cout << "Base show" << endl;
-    }
-    void nonVirtual() {
-        cout << "Base nonVirtual" << endl;
-    }
+    virtual void f1() { cout << "Base Virtual\n"; }
+    void f2() { cout << "Base Non-Virtual\n"; }
 };
 
 class Derived : public Base {
 public:
-    void show() {
-        cout << "Derived show" << endl;
-    }
-    void nonVirtual() {
-        cout << "Derived nonVirtual" << endl;
-    }
+    void f1() { cout << "Derived Virtual\n"; }
+    void f2() { cout << "Derived Non-Virtual\n"; }
 };
 
 int main() {
-    Base* bptr;
-    Derived d;
-    bptr = &d;
-
-    // Calls Derived's show() because it is virtual
-    bptr->show();
-
-    // Calls Base's nonVirtual() because it is NOT virtual (Early Binding)
-    bptr->nonVirtual();
-
+    Base *b = new Derived();
+    b->f1(); // Dynamic Binding
+    b->f2(); // Static Binding
     return 0;
 }

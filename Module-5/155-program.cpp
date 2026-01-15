@@ -5,22 +5,11 @@
 using namespace std;
 
 int main() {
-    int array[5] = {10, 20, 30, 40, 50};
-    int index;
-
-    cout << "Available indices: 0-4" << endl;
-    cout << "Enter index to access: ";
-    cin >> index;
-
+    int arr[5] = {1,2,3,4,5}, i;
+    cin >> i;
     try {
-        if (index < 0 || index >= 5) {
-            throw "Array Out of Bounds Exception!";
-        }
-        cout << "Value at index " << index << ": " << array[index] << endl;
-    }
-    catch (const char* msg) {
-        cout << "Error: " << msg << endl;
-    }
-
+        if(i<0 || i>=5) throw "Out of bounds";
+        cout << arr[i];
+    } catch(const char* m) { cout << m << endl; }
     return 0;
 }

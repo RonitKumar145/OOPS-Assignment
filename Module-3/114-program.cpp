@@ -4,45 +4,17 @@
 #include <iostream>
 using namespace std;
 
-class Employee {
-private:
-    int id;
-    string name;
-    double basicSalary, allowances, deductions;
-
+class Emp {
+    double sal, all, ded;
 public:
-    void getDetails() {
-        cout << "Enter ID: ";
-        cin >> id;
-        cout << "Enter Name: ";
-        cin >> name;
-        cout << "Enter Basic Salary: ";
-        cin >> basicSalary;
-        cout << "Enter Allowances: ";
-        cin >> allowances;
-        cout << "Enter Deductions: ";
-        cin >> deductions;
-    }
-
-    double calculateNetSalary() {
-        return basicSalary + allowances - deductions;
-    }
-
-    void printPaySlip() {
-        cout << "\n--- Pay Slip ---" << endl;
-        cout << "ID: " << id << endl;
-        cout << "Name: " << name << endl;
-        cout << "Basic Salary: " << basicSalary << endl;
-        cout << "Allowances: " << allowances << endl;
-        cout << "Deductions: " << deductions << endl;
-        cout << "Net Salary: " << calculateNetSalary() << endl;
-    }
+    void get() { cin >> sal >> all >> ded; }
+    void show() { cout << "Net: " << (sal + all - ded) << endl; }
 };
 
 int main() {
-    Employee e;
-    e.getDetails();
-    e.printPaySlip();
-
+    Emp e;
+    cout << "Enter Sal, Allow, Ded: ";
+    e.get();
+    e.show();
     return 0;
 }

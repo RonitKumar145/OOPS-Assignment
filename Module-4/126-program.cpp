@@ -6,16 +6,9 @@
 using namespace std;
 
 int main() {
-    ofstream outFile("output.txt");
-    
-    if (outFile.is_open()) {
-        outFile << "Hello, File Handling!" << endl;
-        outFile << "This is line 2." << endl;
-        cout << "Data written to 'output.txt'." << endl;
-        outFile.close();
-    } else {
-        cout << "Unable to open file." << endl;
-    }
-    
+    ofstream f("data.txt");
+    f << "Hello File Handling";
+    f.close();
+    cout << "Written\n";
     return 0;
 }

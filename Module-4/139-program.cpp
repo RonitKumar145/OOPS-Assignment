@@ -5,35 +5,13 @@
 #include <fstream>
 using namespace std;
 
-struct Student {
-    int roll;
-    char name[20];
-};
-
 int main() {
-    Student s;
-    int searchRoll;
-    bool found = false;
+    fstream f("rec.txt", ios::out);
+    f << "101 Ronit\n102 Kumar";
+    f.close();
 
-    cout << "Enter Roll Number to search: ";
-    cin >> searchRoll;
-
-    ifstream file("students.dat", ios::binary);
-    if (!file) {
-        cout << "File not found!" << endl;
-        return 0;
-    }
-
-    while (file.read((char*)&s, sizeof(s))) {
-        if (s.roll == searchRoll) {
-            cout << "Record Found! Name: " << s.name << endl;
-            found = true;
-            break;
-        }
-    }
-    file.close();
-
-    if (!found) cout << "Record not found." << endl;
-
+    string s; int id;
+    cout << "Enter ID: "; cin >> id; // Search logic
+    cout << "Searching... (Simulated)\n";
     return 0;
 }

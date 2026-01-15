@@ -6,13 +6,9 @@ using namespace std;
 
 int main() {
     try {
-        cout << "Inside try block." << endl;
-        throw 10; // Throwing an integer
-        cout << "This line will not execute." << endl;
-    } 
-    catch (int e) {
-        cout << "Caught exception: " << e << endl;
+        throw 10;
+    } catch(int e) {
+        cout << "Caught " << e << endl;
     }
-    cout << "After try-catch block." << endl;
     return 0;
 }

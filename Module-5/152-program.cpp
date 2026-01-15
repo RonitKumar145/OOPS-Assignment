@@ -4,22 +4,10 @@
 #include <iostream>
 using namespace std;
 
-void subFunction() {
-    try {
-        throw "Original Exception";
-    }
-    catch (const char* e) {
-        cout << "Caught inside subFunction: " << e << endl;
-        throw; // Rethrowing the exception
-    }
-}
-
 int main() {
     try {
-        subFunction();
-    }
-    catch (const char* e) {
-        cout << "Caught inside main (Rethrown): " << e << endl;
-    }
+        try { throw 10; }
+        catch(int) { cout << "Rethrowing\n"; throw; }
+    } catch(int) { cout << "Caught rethrow\n"; }
     return 0;
 }

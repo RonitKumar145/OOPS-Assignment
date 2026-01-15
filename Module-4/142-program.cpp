@@ -6,31 +6,11 @@
 using namespace std;
 
 int main() {
-    // Creating two dummy files for demo
-    ofstream f1("fileA.txt"); f1 << "Content from File A." << endl; f1.close();
-    ofstream f2("fileB.txt"); f2 << "Content from File B." << endl; f2.close();
-
-    ifstream inFile1("fileA.txt");
-    ifstream inFile2("fileB.txt");
-    ofstream outFile("merged.txt");
-    
-    char ch;
-    
-    // Copy first file
-    while (inFile1.get(ch)) {
-        outFile.put(ch);
-    }
-    
-    // Copy second file
-    while (inFile2.get(ch)) {
-        outFile.put(ch);
-    }
-    
-    cout << "Files merged into 'merged.txt'." << endl;
-    
-    inFile1.close();
-    inFile2.close();
-    outFile.close();
-
+    ofstream f("m.txt");
+    ifstream f1("a.txt"), f2("b.txt");
+    char c;
+    while(f1.get(c)) f.put(c);
+    while(f2.get(c)) f.put(c);
+    cout << "Merged\n";
     return 0;
 }

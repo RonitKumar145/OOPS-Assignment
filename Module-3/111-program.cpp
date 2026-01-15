@@ -4,52 +4,23 @@
 #include <iostream>
 using namespace std;
 
-class BankAccount {
-private:
-    string accountHolder;
-    int accountNumber;
-    double balance;
-
+class Bank {
+    int acc;
+    double bal;
 public:
-    BankAccount(string name, int accNo, double initialBalance) {
-        accountHolder = name;
-        accountNumber = accNo;
-        balance = initialBalance;
+    Bank(int a, double b) : acc(a), bal(b) {}
+    void deposit(double d) { bal += d; }
+    void withdraw(double w) { 
+        if(bal >= w) bal -= w; 
+        else cout << "Insufficient\n"; 
     }
-
-    void deposit(double amount) {
-        if (amount > 0) {
-            balance += amount;
-            cout << "Deposited: $" << amount << endl;
-        } else {
-            cout << "Invalid deposit amount." << endl;
-        }
-    }
-
-    void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            cout << "Withdrawn: $" << amount << endl;
-        } else {
-            cout << "Invalid withdrawal amount or insufficient funds." << endl;
-        }
-    }
-
-    void displayInfo() {
-        cout << "\nAccount Holder: " << accountHolder << endl;
-        cout << "Account Number: " << accountNumber << endl;
-        cout << "Current Balance: $" << balance << endl;
-    }
+    void show() { cout << "Acc: " << acc << " Bal: " << bal << endl; }
 };
 
 int main() {
-    cout << "Creating Account for Ronit..." << endl;
-    BankAccount myAccount("Ronit Kumar", 10056, 5000.0);
-
-    myAccount.displayInfo();
-    myAccount.deposit(1500.0);
-    myAccount.withdraw(2000.0);
-    myAccount.displayInfo();
-
+    Bank b(101, 5000);
+    b.deposit(500);
+    b.withdraw(2000);
+    b.show();
     return 0;
 }

@@ -6,11 +6,9 @@
 using namespace std;
 
 int main() {
-    string str;
-    cout << "Enter a sentence: ";
-    getline(cin, str);
-    
-    cout << "You entered: " << str << endl;
-    
+    string s;
+    cout << "Enter line: ";
+    getline(cin, s);
+    cout << "Line: " << s << endl;
     return 0;
 }

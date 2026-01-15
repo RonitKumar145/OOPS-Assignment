@@ -6,17 +6,9 @@
 using namespace std;
 
 int main() {
-    // Truncate mode: Deletes existing content
-    ofstream file1("mode_test.txt", ios::trunc);
-    file1 << "Truncated content." << endl;
-    file1.close();
-
-    // Append mode: Adds to end
-    ofstream file2("mode_test.txt", ios::app);
-    file2 << "Appended content." << endl;
-    file2.close();
-
-    cout << "File operations with modes completed." << endl;
-    
+    ofstream f("test.txt", ios::out | ios::trunc);
+    f << "Overwritten content";
+    f.close();
+    cout << "Done\n";
     return 0;
 }

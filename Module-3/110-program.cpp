@@ -4,42 +4,22 @@
 #include <iostream>
 using namespace std;
 
-// Base Class
 class Payment {
-public:
-    virtual void process() {
-        cout << "Processing generic payment..." << endl;
-    }
+public: virtual void pay() { cout << "Generic Payment\n"; }
 };
 
-class CreditCard : public Payment {
-public:
-    void process() {
-        cout << "Processing Credit Card payment..." << endl;
-    }
+class Card : public Payment {
+public: void pay() { cout << "Card Payment\n"; }
 };
 
-class PayPal : public Payment {
-public:
-    void process() {
-        cout << "Processing PayPal payment..." << endl;
-    }
+class UPI : public Payment {
+public: void pay() { cout << "UPI Payment\n"; }
 };
 
 int main() {
-    // Implication: Scalability
-    // We can add new Payment types (e.g., Bitcoin) without changing this main logic
-    
-    Payment* p;
-    
-    cout << "User selects Credit Card:" << endl;
-    p = new CreditCard();
-    p->process();
-
-    cout << "\nUser selects PayPal:" << endl;
-    p = new PayPal();
-    p->process();
-
-    // The interface 'process()' remains consistent for all types
+    Payment* p = new Card();
+    p->pay();
+    p = new UPI();
+    p->pay();
     return 0;
 }

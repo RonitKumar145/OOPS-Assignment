@@ -5,26 +5,13 @@
 #include <fstream>
 using namespace std;
 
-struct Data {
-    int id;
-    double value;
-};
+struct Data { int id; };
 
 int main() {
-    Data d1 = {101, 99.5};
-    
-    // Write binary
-    ofstream outFile("binary.dat", ios::binary);
-    outFile.write((char*)&d1, sizeof(d1));
-    outFile.close();
-    
-    // Read binary
-    Data d2;
-    ifstream inFile("binary.dat", ios::binary);
-    inFile.read((char*)&d2, sizeof(d2));
-    inFile.close();
-    
-    cout << "Read from binary: ID=" << d2.id << ", Value=" << d2.value << endl;
-    
+    Data d = {101};
+    ofstream f("struct.dat", ios::binary);
+    f.write((char*)&d, sizeof(d));
+    f.close();
+    cout << "Struct Written\n";
     return 0;
 }

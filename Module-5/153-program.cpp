@@ -5,20 +5,12 @@
 #include <exception>
 using namespace std;
 
-// Defining custom exception
-class MyException : public exception {
-public:
-    const char* what() const throw() {
-        return "Custom User-Defined Exception Occurred!";
-    }
+class MyEx : public exception {
+public: const char* what() const throw() { return "My Error"; }
 };
 
 int main() {
-    try {
-        throw MyException();
-    }
-    catch (MyException& e) {
-        cout << e.what() << endl;
-    }
+    try { throw MyEx(); }
+    catch(MyEx& e) { cout << e.what() << endl; }
     return 0;
 }

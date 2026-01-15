@@ -6,39 +6,14 @@
 using namespace std;
 
 class Student {
-public:
-    string name;
-    int roll;
-
-    void input() {
-        cout << "Enter Name: ";
-        cin >> name;
-        cout << "Enter Roll: ";
-        cin >> roll;
-    }
-
-    void display() {
-        cout << "Name: " << name << ", Roll: " << roll << endl;
-    }
+public: 
+    string name; int age;
+    void put() { ofstream f("s.txt"); f<<name<<" "<<age; f.close(); }
 };
 
 int main() {
-    Student s;
-    s.input();
-
-    // Write object data to file (Text mode)
-    ofstream outFile("student.txt");
-    outFile << s.name << " " << s.roll << endl;
-    outFile.close();
-
-    // Read object data from file
-    Student s2;
-    ifstream inFile("student.txt");
-    inFile >> s2.name >> s2.roll;
-    inFile.close();
-
-    cout << "Data read from file:" << endl;
-    s2.display();
-
+    Student s; s.name="Ronit"; s.age=20;
+    s.put();
+    cout << "Saved\n";
     return 0;
 }

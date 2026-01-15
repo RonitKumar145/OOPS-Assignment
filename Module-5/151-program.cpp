@@ -4,31 +4,11 @@
 #include <iostream>
 using namespace std;
 
-void func3() {
-    cout << "Inside func3: Before throwing." << endl;
-    throw 100;
-    cout << "Inside func3: This line is skipped." << endl;
-}
-
-void func2() {
-    cout << "Inside func2: Before Calling func3." << endl;
-    func3();
-    cout << "Inside func2: This line is skipped." << endl;
-}
-
-void func1() {
-    cout << "Inside func1: Before Calling func2." << endl;
-    try {
-        func2();
-    } catch (int e) {
-        cout << "Caught exception in func1: " << e << endl;
-    }
-    cout << "Inside func1: After catch block." << endl;
-}
+void f1() { throw 1; }
+void f2() { f1(); }
 
 int main() {
-    cout << "Main: Calling func1." << endl;
-    func1();
-    cout << "Main: Back in main." << endl;
+    try { f2(); } 
+    catch(int) { cout << "Unwound stack\n"; }
     return 0;
 }

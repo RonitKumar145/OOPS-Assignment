@@ -5,18 +5,10 @@
 using namespace std;
 
 int main() {
-    int age;
-    cout << "Enter age: ";
-    cin >> age;
-
     try {
-        if (age < 18) {
-            throw age; // Throwing integer exception
-        }
-        cout << "Access granted." << endl;
-    }
-    catch (int num) {
-        cout << "Access denied - Age is: " << num << "\nMinimum 18 required." << endl;
+        throw "Error";
+    } catch(const char* msg) {
+        cout << "Caught " << msg << endl;
     }
     return 0;
 }
